@@ -1,0 +1,9 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.showBuildDuringDeployPrompt": false,
+    "appService.defaultWebAppToDeploy": "/subscriptions/ee6b3a03-b173-4cea-9877-ee47abc672d2/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/RandR",
+    "appService.deploySubpath": ""
+}
