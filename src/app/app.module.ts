@@ -1,24 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MissionsComponent } from './components/missions/missions.component';
-import { AgentsComponent } from './components/agents/agents.component';
-import { ChartsComponent } from './components/shared/charts/charts.component';
-import { ChartsModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
 import { GaugesModule } from '@progress/kendo-angular-gauges';
 import { InputsModule } from '@progress/kendo-angular-inputs';
-import { GridModule } from '@progress/kendo-angular-grid';
 import { ChatModule } from '@progress/kendo-angular-conversational-ui';
-
-
-
+import { NotificationModule } from '@progress/kendo-angular-notification';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { DemosComponent } from './components/demos/demos.component';
+//import { GridModule } from '@progress/kendo-angular-grid';
 
 
 
@@ -26,22 +24,23 @@ import { ChatModule } from '@progress/kendo-angular-conversational-ui';
 @NgModule({
   declarations: [
     AppComponent,
-    MissionsComponent,
-    AgentsComponent,
-    ChartsComponent
+    DemosComponent
+ 
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatTabsModule,
     AppRoutingModule,
-    ChartsModule,
     FormsModule,
     GaugesModule,
     InputsModule,
-    GridModule,
-    ChatModule
+    ChatModule,
+    NotificationModule,
+    MatExpansionModule,
+    //GridModule
   ],
   providers: [],
   bootstrap: [AppComponent]

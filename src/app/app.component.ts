@@ -1,19 +1,20 @@
-import { Component } from '@angular/core';
-import { LegendLabelsContentArgs } from '@progress/kendo-angular-charts';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { IntlService } from '@progress/kendo-angular-intl';
 import { products } from './products';
 import { Subject, from, merge, Observable } from 'rxjs';
 import { switchMap, map, windowCount, scan, take, tap } from 'rxjs/operators';
 import { ChatModule, Message, User, Action, ExecuteActionEvent, SendMessageEvent } from '@progress/kendo-angular-conversational-ui';
 import { ChatService } from './services/chat.service';
+import { NotificationService } from '@progress/kendo-angular-notification';
 
 @Component({
   providers: [ ChatService ],
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'RAR';
   public feed: Observable<Message[]>;
 
@@ -28,39 +29,17 @@ export class AppComponent {
   private local: Subject<Message> = new Subject<Message>();
   public gridData: any[] = products;
   public sliderValue: number = 10;
-  public pieData: any[] = [
-    { category: '0-14', value: 0.2545 },
-    { category: '15-24', value: 0.1552 },
-    { category: '25-54', value: 0.4059 },
-    { category: '55-64', value: 0.0911 },
-    { category: '65+', value: 0.0933 }
-];
+  
+  //dynamic tabs
+  public navLinks: any[] = [
+    { label: 'Missions', path: 'missions' },
+    { label: 'Agents', path: 'agents' },
+    { label: 'GeoFences', path: 'geofences' }
+  ]
 
-public weatherData = [
-  { month: "January", min: 5, max: 11 },
-  { month: "February", min: 5, max: 13 },
-  { month: "March", min: 7, max: 15 },
-  { month: "April", min: 10, max: 19 },
-  { month: "May", min: 13, max: 23 },
-  { month: "June", min: 17, max: 28 },
-  { month: "July", min: 20, max: 30 },
-  { month: "August", min: 20, max: 30 },
-  { month: "September", min: 17, max: 26 },
-  { month: "October", min: 13, max: 22 },
-  { month: "November", min: 9, max: 16 },
-  { month: "December", min: 6, max: 13 }
-];
 
-public labelContentFrom(e: any): string {
-    return `${ e.value.from } °C`;
-}
-
-public labelContentTo(e: any): string {
-    return `${ e.value.to } °C`;
-}
-
-constructor(private intl: IntlService, private svc: ChatService) {
-    this.labelContent = this.labelContent.bind(this);
+constructor(private intl: IntlService, private svc: ChatService, private notificationService: NotificationService) {
+    //this.labelContent = this.labelContent.bind(this);
 
     const hello: Message = {
       author: this.bot,
@@ -89,6 +68,11 @@ constructor(private intl: IntlService, private svc: ChatService) {
       scan((acc: Message[], x: Message) => [...acc, x], [])
     );
 }
+  
+
+ngOnInit(){
+  
+}
 
 public sendMessage(e: SendMessageEvent): void {
   this.local.next(e.message);
@@ -101,8 +85,8 @@ public sendMessage(e: SendMessageEvent): void {
   this.svc.submit(e.message.text);
 }
 
-public labelContent(args: LegendLabelsContentArgs): string {
-    return `${args.dataItem.category} years old: ${this.intl.formatNumber(args.dataItem.value, 'p2')}`;
-}
+// public labelContent(args: LegendLabelsContentArgs): string {
+//     return `${args.dataItem.category} years old: ${this.intl.formatNumber(args.dataItem.value, 'p2')}`;
+// }
 
 }

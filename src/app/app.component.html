@@ -1,107 +1,72 @@
 <mat-toolbar color="primary">
-  <span> Missions Data Demo : KaylanTech </span>
+  <span> Missions Data Tool : KaylanTech </span>
   <span class="example-fill-remaining-space"></span>  
 </mat-toolbar>
 
-<mat-tab-group>
-  <mat-tab label="Charts"> <kendo-chart>
-    <kendo-chart-title text="Units sold"></kendo-chart-title>
-    <kendo-chart-category-axis>
-        <kendo-chart-category-axis-item
-            [categories]="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']"
-            [title]="{ text: 'Months' }">
-        </kendo-chart-category-axis-item>
-    </kendo-chart-category-axis>
-    <kendo-chart-series>
-      <kendo-chart-series-item type="line" [data]="[123, 276, 310, 212, 240, 156, 98]">
-      </kendo-chart-series-item>
-      <kendo-chart-series-item type="line" [data]="[165, 210, 287, 144, 190, 167, 212]">
-      </kendo-chart-series-item>
-      <kendo-chart-series-item type="line" [data]="[56, 140, 195, 46, 123, 78, 95]">
-      </kendo-chart-series-item>
-    </kendo-chart-series>
-  </kendo-chart>
-  <hr/>
-  <kendo-chart>
-    <kendo-chart-title text="Units sold"></kendo-chart-title>
-    <kendo-chart-category-axis>
-        <kendo-chart-category-axis-item [categories]="['Q1', 'Q2', 'Q3', 'Q4']">
-        </kendo-chart-category-axis-item>
-    </kendo-chart-category-axis>
-    <hr/>
-    <kendo-chart-series>
-      <kendo-chart-series-item type="bar" [gap]="2" [spacing]=".25" [data]="[100, 123, 234, 343]">
-      </kendo-chart-series-item>
-      <kendo-chart-series-item type="bar" [data]="[120, 67, 231, 196]">
-      </kendo-chart-series-item>
-      <kendo-chart-series-item type="bar" [data]="[45, 124, 189, 143]">
-      </kendo-chart-series-item>
-      <kendo-chart-series-item type="bar" [data]="[87, 154, 210, 215]">
-      </kendo-chart-series-item>
-    </kendo-chart-series>
-  </kendo-chart>
-  <hr/>
-  <kendo-chart title="World Population by Broad Age Groups">
-    <kendo-chart-legend position="bottom"></kendo-chart-legend>
-    <kendo-chart-series>
-      <kendo-chart-series-item
-        type="pie"
-        [data]="pieData"
-        field="value"
-        categoryField="category"
-        [labels]="{ visible: true, content: labelContent }"
-      >
-      </kendo-chart-series-item>
-    </kendo-chart-series>
-  </kendo-chart>
-  <hr/>
-  <kendo-chart [title]="{ text: 'Average Weather Conditions' }">
-    <kendo-chart-series>
-      <kendo-chart-series-item type="rangeColumn"
-                               [data]="weatherData" fromField="min" toField="max" categoryField="month">
-        <kendo-chart-series-item-labels-from [content]="labelContentFrom">
-        </kendo-chart-series-item-labels-from>
-        <kendo-chart-series-item-labels-to [content]="labelContentTo">
-        </kendo-chart-series-item-labels-to>
-      </kendo-chart-series-item>
-    </kendo-chart-series>
-    <kendo-chart-category-axis>
-        <kendo-chart-category-axis-item [labels]="{ rotation: 'auto' }">
-        </kendo-chart-category-axis-item>
-    </kendo-chart-category-axis>
-    <kendo-chart-tooltip>
-      <ng-template kendoChartSeriesTooltipTemplate let-value="value">
-        Avg Min Temp : {{ value.from }} °C <br>
-        Avg Max Temp : {{ value.to }} °C"
-      </ng-template>
-    </kendo-chart-tooltip>
-  </kendo-chart>
+<mat-expansion-panel [expanded]="true">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      
+    </mat-panel-title>
+    
+  </mat-expansion-panel-header>
+
+  <p class=paragraph >In this demo we display many different elements that can be used in your application design. Navigate through each tab to see how these tools can be useful in your application to better fulfill you business needs. We are adding to this demo and will make updates periodically. Check out the site anytime to see new designs!</p>
+
+</mat-expansion-panel>
+
+<!-- <mat-tab-group>
+  <mat-tab label="Missions" routerLink="/missions">
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header></mat-expansion-panel-header>
+      <p class=paragraph>Here are some very handy charts that you can incoorperate into your application for data display.</p>
+    </mat-expansion-panel> 
+         <app-charts></app-charts>
+
  </mat-tab>
-  <mat-tab label="Gauges"> 
+  <mat-tab label="Gauges">
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header></mat-expansion-panel-header>
+      <p class="paragraph">Gauges are used to show application realtime performance. Click the slider to see increase on the meters.</p>
+    </mat-expansion-panel>
+
     <div class="example-config">
+      <label for="sliderValue">Guages Slider:  </label>
       <kendo-slider id="sliderValue" [min]="0" [max]="50" [smallStep]="10" [(ngModel)]="sliderValue"></kendo-slider>
-      <label for="sliderValue">Guages Demo</label>
-  </div>
-  <hr/>
-  <div>
-  <kendo-lineargauge [pointer]="{ value: sliderValue }" [scale]="{ max: 50 }">
-  </kendo-lineargauge> 
-  </div>
-  <hr/>
-  <div class="col-sm-12 col-md-5">
-    <kendo-radialgauge #radial [pointer]="{ value: sliderValue }">
-    </kendo-radialgauge>
-</div>
-<hr/>
-<div class="col-sm-12 col-md-5">
-    <kendo-arcgauge #arc [value]="sliderValue">
-        <ng-template kendoArcGaugeCenterTemplate let-value="sliderValue">
-            {{ sliderValue }}
-        </ng-template>
-    </kendo-arcgauge>
-</div>
+    </div>
+    <table>
+      <tr>
+        <td>
+          <div>
+            <kendo-lineargauge [pointer]="{ value: sliderValue }" [scale]="{ max: 50 }">
+            </kendo-lineargauge> 
+            </div>
+        </td>
+        <td>
+          <div class="col-sm-12 col-md-5">
+            <kendo-radialgauge #radial [pointer]="{ value: sliderValue }">
+            </kendo-radialgauge>
+        </div>
+        </td>
+        <td>
+          <div class="col-sm-12 col-md-5">
+            <kendo-arcgauge #arc [value]="sliderValue">
+                <ng-template kendoArcGaugeCenterTemplate let-value="sliderValue">
+                    {{ sliderValue }}
+                </ng-template>
+            </kendo-arcgauge>
+        </div>
+        </td>
+      </tr>
+    </table>
+
   </mat-tab>
   <mat-tab label="Grids"> 
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header></mat-expansion-panel-header>
+      <p class=paragraph>All enterprise applications will need grids. See how we design paging, sorting, exporting and more.</p>
+    </mat-expansion-panel>
+
     <kendo-grid [data]="gridData" [height]="410">
       <kendo-grid-column field="ProductID" title="ID" width="40">
       </kendo-grid-column>
@@ -121,10 +86,24 @@
   </kendo-grid>
   </mat-tab>
   <mat-tab label="Chat Tool"> 
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header></mat-expansion-panel-header>
+      <p class=paragraph>The ability to chat with your clients is very import. See how we design a chat for your application.</p>
+    </mat-expansion-panel>
+
     <kendo-chat [messages]="feed | async" [user]="user" (sendMessage)="sendMessage($event)"> </kendo-chat>  
   </mat-tab>
-</mat-tab-group>
+</mat-tab-group> -->
 
 
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+     *ngFor="let link of navLinks"
+     [routerLink]="link.path"
+     routerLinkActive #rla="routerLinkActive"
+     [active]="rla.isActive">
+    {{link.label}}
+  </a>
+</nav>
 
 <router-outlet></router-outlet>
