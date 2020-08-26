@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MissionsService } from '../services/missions.service';
+import { SharedDataService } from '../services/shared-data.service';
 import { Mission } from '../interfaces/mission';
+import { Router } from '@angular/router';
+import { SelectableSettings } from '@progress/kendo-angular-grid';
 
 @Component({
   selector: 'app-missions',
@@ -11,7 +14,12 @@ export class MissionsComponent implements OnInit {
 
   public gridData: Mission[] = [];
   public selectedItem;
-  constructor(private missionService: MissionsService) { }
+  public mode = 'single';
+  public selectableSettings: SelectableSettings;
+  constructor(private missionService: MissionsService, private sharedService: SharedDataService, private _router: Router) 
+  { 
+    this.setSelectableSettings();
+  }
 
   ngOnInit(): void {
      
@@ -21,9 +29,19 @@ export class MissionsComponent implements OnInit {
 
   }
 
+  setSelectableSettings(): void
+  {
+    this.selectableSettings = {
+      checkboxOnly: false,
+      mode: 'single'
+    };
+  }
+
   selectionChange(e)
   {
     this.selectedItem = e.selectedRows[0].dataItem;
+    this.sharedService.changeMessage(this.selectedItem);
+    this._router.navigate(['missions/details']);
   }
 
 }

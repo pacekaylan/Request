@@ -1,6 +1,6 @@
 <p>missions works!</p>
 
-<kendo-grid [data]="gridData" [height]="410" (selectionChange)="selectionCHange($event)">
+<kendo-grid [data]="gridData" [height]="410" [selectable]="selectableSettings" (selectionChange)="selectionChange($event)">
     <ng-template kendoGridToolbarTemplate>
         <button type="button" kendoGridExcelCommand icon="file-excel">Export to Excel</button>
     </ng-template>

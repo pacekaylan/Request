@@ -16,6 +16,7 @@ import { ChatModule } from '@progress/kendo-angular-conversational-ui';
 import { NotificationModule } from '@progress/kendo-angular-notification';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { DemosComponent } from './components/demos/demos.component';
+//import { MissionDetailsComponent } from './mission-details/mission-details.component';
 //import { GridModule } from '@progress/kendo-angular-grid';
 
 
@@ -24,7 +25,8 @@ import { DemosComponent } from './components/demos/demos.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DemosComponent
+    DemosComponent,
+    //MissionDetailsComponent
  
   ],
   imports: [

@@ -23,7 +23,7 @@ export class MissionsService {
       //  console.log(data);
       //  return data;
       //});
-      return this.http.get<Mission[]>('https://localhost:44375/api/missions');
+      return this.http.get<Mission[]>('https://rardevapi.azurewebsites.net/api/missions');
       
     }
   
