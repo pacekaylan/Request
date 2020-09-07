@@ -8,7 +8,7 @@ import { SelectableSettings } from '@progress/kendo-angular-grid';
 @Component({
   selector: 'app-missions',
   templateUrl: './missions.component.html',
-  styleUrls: ['./missions.component.scss']
+  //styleUrls: ['./missions.component.scss']
 })
 export class MissionsComponent implements OnInit {
 

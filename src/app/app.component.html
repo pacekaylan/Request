@@ -1,7 +1,9 @@
-<mat-toolbar color="primary">
+ <mat-toolbar color="primary">
   <span> Missions Data Tool : KaylanTech </span>
   <span class="example-fill-remaining-space"></span>  
 </mat-toolbar>
+
+
 
 <mat-expansion-panel [expanded]="true">
   <mat-expansion-panel-header>
@@ -15,86 +17,6 @@
 
 </mat-expansion-panel>
 
-<!-- <mat-tab-group>
-  <mat-tab label="Missions" routerLink="/missions">
-    <mat-expansion-panel [expanded]="true">
-      <mat-expansion-panel-header></mat-expansion-panel-header>
-      <p class=paragraph>Here are some very handy charts that you can incoorperate into your application for data display.</p>
-    </mat-expansion-panel> 
-         <app-charts></app-charts>
-
- </mat-tab>
-  <mat-tab label="Gauges">
-    <mat-expansion-panel [expanded]="true">
-      <mat-expansion-panel-header></mat-expansion-panel-header>
-      <p class="paragraph">Gauges are used to show application realtime performance. Click the slider to see increase on the meters.</p>
-    </mat-expansion-panel>
-
-    <div class="example-config">
-      <label for="sliderValue">Guages Slider:  </label>
-      <kendo-slider id="sliderValue" [min]="0" [max]="50" [smallStep]="10" [(ngModel)]="sliderValue"></kendo-slider>
-    </div>
-    <table>
-      <tr>
-        <td>
-          <div>
-            <kendo-lineargauge [pointer]="{ value: sliderValue }" [scale]="{ max: 50 }">
-            </kendo-lineargauge> 
-            </div>
-        </td>
-        <td>
-          <div class="col-sm-12 col-md-5">
-            <kendo-radialgauge #radial [pointer]="{ value: sliderValue }">
-            </kendo-radialgauge>
-        </div>
-        </td>
-        <td>
-          <div class="col-sm-12 col-md-5">
-            <kendo-arcgauge #arc [value]="sliderValue">
-                <ng-template kendoArcGaugeCenterTemplate let-value="sliderValue">
-                    {{ sliderValue }}
-                </ng-template>
-            </kendo-arcgauge>
-        </div>
-        </td>
-      </tr>
-    </table>
-
-  </mat-tab>
-  <mat-tab label="Grids"> 
-    <mat-expansion-panel [expanded]="true">
-      <mat-expansion-panel-header></mat-expansion-panel-header>
-      <p class=paragraph>All enterprise applications will need grids. See how we design paging, sorting, exporting and more.</p>
-    </mat-expansion-panel>
-
-    <kendo-grid [data]="gridData" [height]="410">
-      <kendo-grid-column field="ProductID" title="ID" width="40">
-      </kendo-grid-column>
-      <kendo-grid-column field="ProductName" title="Name" width="250">
-      </kendo-grid-column>
-      <kendo-grid-column field="Category.CategoryName" title="Category">
-      </kendo-grid-column>
-      <kendo-grid-column field="UnitPrice" title="Price" width="80">
-      </kendo-grid-column>
-      <kendo-grid-column field="UnitsInStock" title="In stock" width="80">
-      </kendo-grid-column>
-      <kendo-grid-column field="Discontinued" title="Discontinued" width="120">
-          <ng-template kendoGridCellTemplate let-dataItem>
-              <input type="checkbox" [checked]="dataItem.Discontinued" disabled/>
-          </ng-template>
-      </kendo-grid-column>
-  </kendo-grid>
-  </mat-tab>
-  <mat-tab label="Chat Tool"> 
-    <mat-expansion-panel [expanded]="true">
-      <mat-expansion-panel-header></mat-expansion-panel-header>
-      <p class=paragraph>The ability to chat with your clients is very import. See how we design a chat for your application.</p>
-    </mat-expansion-panel>
-
-    <kendo-chat [messages]="feed | async" [user]="user" (sendMessage)="sendMessage($event)"> </kendo-chat>  
-  </mat-tab>
-</mat-tab-group> -->
-
 
 <nav mat-tab-nav-bar>
   <a mat-tab-link
@@ -104,6 +26,6 @@
      [active]="rla.isActive">
     {{link.label}}
   </a>
-</nav>
+</nav> 
 
 <router-outlet></router-outlet>

@@ -5,7 +5,9 @@ import { Subject, from, merge, Observable } from 'rxjs';
 import { switchMap, map, windowCount, scan, take, tap } from 'rxjs/operators';
 import { ChatModule, Message, User, Action, ExecuteActionEvent, SendMessageEvent } from '@progress/kendo-angular-conversational-ui';
 import { ChatService } from './services/chat.service';
-import { NotificationService } from '@progress/kendo-angular-notification';
+//import { NotificationService } from '@progress/kendo-angular-notification';
+
+
 
 @Component({
   providers: [ ChatService ],
@@ -37,9 +39,10 @@ export class AppComponent implements OnInit {
     { label: 'GeoFences', path: 'geofences' }
   ]
 
-
-constructor(private intl: IntlService, private svc: ChatService, private notificationService: NotificationService) {
+  menuItems: any[];
+constructor(private intl: IntlService, private svc: ChatService) {
     //this.labelContent = this.labelContent.bind(this);
+ 
 
     const hello: Message = {
       author: this.bot,
@@ -84,6 +87,8 @@ public sendMessage(e: SendMessageEvent): void {
 
   this.svc.submit(e.message.text);
 }
+
+
 
 // public labelContent(args: LegendLabelsContentArgs): string {
 //     return `${args.dataItem.category} years old: ${this.intl.formatNumber(args.dataItem.value, 'p2')}`;
