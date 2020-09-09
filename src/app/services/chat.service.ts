@@ -1,7 +1,6 @@
 import { Observable, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 
-// Mock remote service
 
 @Injectable()
 export class ChatService {
