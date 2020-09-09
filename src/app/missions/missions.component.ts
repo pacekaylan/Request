@@ -13,6 +13,7 @@ import { SelectableSettings } from '@progress/kendo-angular-grid';
 export class MissionsComponent implements OnInit {
 
   public gridData: Mission[] = [];
+  public isDataAvailable: boolean = false;
   public selectedItem;
   public mode = 'single';
   public selectableSettings: SelectableSettings;
@@ -25,6 +26,7 @@ export class MissionsComponent implements OnInit {
      
     this.missionService.getMissions().subscribe(data => {
       this.gridData = data;
+      this.isDataAvailable = true;
     });
 
   }

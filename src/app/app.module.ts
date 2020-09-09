@@ -17,6 +17,12 @@
  import { NotificationModule } from '@progress/kendo-angular-notification';
  import { MatExpansionModule } from '@angular/material/expansion';
  import { DemosComponent } from './components/demos/demos.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -24,7 +30,8 @@
  @NgModule({
    declarations: [
      AppComponent,
-     DemosComponent
+     DemosComponent,
+     SidenavComponent
  
    ],
    imports: [
@@ -40,6 +47,11 @@
      ChatModule,
      NotificationModule,
      MatExpansionModule,
+     LayoutModule,
+     MatButtonModule,
+     MatSidenavModule,
+     MatIconModule,
+     MatListModule,
      //GridModule
    ],
    providers: [],

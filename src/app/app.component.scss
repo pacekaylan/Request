@@ -8,3 +8,32 @@
     color: #2A6B96;
     font-size: large;
 }
+
+//   .sidenav-container {
+//       height: 70%;
+//       position: relative;
+//       bottom: 10px;
+//       padding-left: 10px;
+//     }
+  
+  .sidenav {
+      position: inherit;
+      bottom: 20px;
+      height: 70%;
+    width: 200px;
+  }
+  
+//   .sidenav .mat-toolbar {
+//     background: inherit;
+//   }
+  
+   .mat-toolbar.mat-primary {
+     position: sticky;
+     top: 0;
+     z-index: 1;
+   }
+   
+   #introParagraph{
+       border-bottom: 10px;
+       border-bottom-color: black;
+   }

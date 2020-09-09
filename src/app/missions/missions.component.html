@@ -1,20 +1,21 @@
-<h2>Missions</h2>
-
-<kendo-grid [data]="gridData" [height]="410" [selectable]="selectableSettings" (selectionChange)="selectionChange($event)">
-    <ng-template kendoGridToolbarTemplate>
-        <button type="button" kendoGridExcelCommand icon="file-excel">Export to Excel</button>
-    </ng-template>
-    <kendo-grid-column field="id" title="ID" width="100">
-    </kendo-grid-column>
-    <kendo-grid-column field="name" title="Mission Name" width="250">
-    </kendo-grid-column>
-    <kendo-grid-column field="startDate" title="Start">
-    </kendo-grid-column>
-    <kendo-grid-column field="completed" title="Completed" width="120">
-        <ng-template kendoGridCellTemplate let-dataItem>
-            <input type="checkbox" [checked]="dataItem.completed" disabled/>
+<!-- <h2>Missions</h2> -->
+<div *ngIf="isDataAvailable">
+    <kendo-grid [data]="gridData" [height]="410" [selectable]="selectableSettings" (selectionChange)="selectionChange($event)">
+        <ng-template kendoGridToolbarTemplate>
+            <button type="button" kendoGridExcelCommand icon="file-excel">Export to Excel</button>
         </ng-template>
-    </kendo-grid-column> 
-    <pre>{{ selectedItem | json}}</pre>
-    <kendo-grid-excel fileName="missions.xlsx"></kendo-grid-excel>
-</kendo-grid>
+        <kendo-grid-column field="id" title="ID" width="100">
+        </kendo-grid-column>
+        <kendo-grid-column field="name" title="Mission Name" width="250">
+        </kendo-grid-column>
+        <kendo-grid-column field="startDate" title="Start">
+        </kendo-grid-column>
+        <kendo-grid-column field="completed" title="Completed" width="120">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <input type="checkbox" [checked]="dataItem.completed" disabled/>
+            </ng-template>
+        </kendo-grid-column> 
+        <pre>{{ selectedItem | json}}</pre>
+        <kendo-grid-excel fileName="missions.xlsx"></kendo-grid-excel>
+    </kendo-grid>
+</div>

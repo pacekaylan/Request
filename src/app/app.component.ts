@@ -5,6 +5,9 @@ import { Subject, from, merge, Observable } from 'rxjs';
 import { switchMap, map, windowCount, scan, take, tap } from 'rxjs/operators';
 import { ChatModule, Message, User, Action, ExecuteActionEvent, SendMessageEvent } from '@progress/kendo-angular-conversational-ui';
 import { ChatService } from './services/chat.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
+import { shareReplay } from 'rxjs/operators';
 //import { NotificationService } from '@progress/kendo-angular-notification';
 
 
@@ -40,7 +43,13 @@ export class AppComponent implements OnInit {
   ]
 
   menuItems: any[];
-constructor(private intl: IntlService, private svc: ChatService) {
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  .pipe(
+    map(result => result.matches),
+    shareReplay()
+  );
+constructor(private intl: IntlService, private svc: ChatService, private breakpointObserver: BreakpointObserver) {
     //this.labelContent = this.labelContent.bind(this);
  
 
