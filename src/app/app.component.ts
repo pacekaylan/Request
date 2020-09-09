@@ -97,10 +97,4 @@ public sendMessage(e: SendMessageEvent): void {
   this.svc.submit(e.message.text);
 }
 
-
-
-// public labelContent(args: LegendLabelsContentArgs): string {
-//     return `${args.dataItem.category} years old: ${this.intl.formatNumber(args.dataItem.value, 'p2')}`;
-// }
-
 }

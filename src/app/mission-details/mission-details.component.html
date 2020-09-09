@@ -1,83 +1,96 @@
-<div class="example-wrap">
-    <form class="k-form" [formGroup]="missionDetails">
-        <fieldset class="k-form-fieldset">
-            <legend class="k-form-legend">Mission Details</legend>
+<div *ngIf=isDataAvailable>
 
-            <kendo-formfield>
-                <kendo-label [for]="ID" text="ID"></kendo-label>
-                <input formControlName="id" kendoTextBox #ID required/>
-                <kendo-formerror>Error: Mission ID is required</kendo-formerror>
-            </kendo-formfield>
+    <div class="example-wrap">
+        <form class="k-form" [formGroup]="missionDetails">
+            <fieldset class="k-form-fieldset">
+                <div class=row> 
 
-            <kendo-formfield>
-                <kendo-label [for]="Name" text="Mission Name"></kendo-label>
-                <input formControlName="name" kendoTextBox #Name required/>
-                <kendo-formerror>Error: Mission Name is required</kendo-formerror>
-            </kendo-formfield>
-
-            <kendo-formfield>
-                <kendo-label [for]="StartDate" [optional]="true" text="Start Date"></kendo-label>
-                <kendo-datepicker #StartDate formControlName="startDate" [min]="min" [max]="max"></kendo-datepicker>
-            </kendo-formfield>
-            
-            <kendo-formfield [showHints]="'initial'">
-                <div class="k-form-field-checkbox-wrap">
-                    <input kendoCheckBox id="cbCompleted" type="checkbox" [formControlName]="'completed'" />
-                    <kendo-label class="k-checkbox-label" for="terms" text="Completed"></kendo-label>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td><h2>Mission Details</h2></td>
+                            <td id="headerRightColumn">
+                                    <div class="k-form-buttons" >
+                                        <button class="k-button k-primary" (click)="editForm()">Edit</button>
+                                    </div>
+                                
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- <div class="column" style="width: 30%;"><h2>Mission Details</h2></div> -->
+                    <!-- <div class= "column"></div> -->
+                    <!-- <div class="column" style="float: right; width: 70%;">
+                        <div class="k-form-buttons">
+                            <button class="k-button k-primary" (click)="editForm()">Edit</button>
+                        </div>
+                    </div> -->
+                    
                 </div>
-                    <kendo-formerror>Error: This field is required</kendo-formerror>
-            </kendo-formfield>
-
-            <kendo-formfield>
-                <kendo-label [for]="createdDate" [optional]="true" text="Created Date"></kendo-label>
-                <kendo-datepicker #createdDate formControlName="createdDate" [min]="min" [max]="max"></kendo-datepicker>
-            </kendo-formfield>
-
-            <kendo-formfield>
-                <kendo-label [for]="completedDate" [optional]="true" text="Completed Date"></kendo-label>
-                <kendo-datepicker #completedDate formControlName="completedDate" [min]="min" [max]="max"></kendo-datepicker>
-            </kendo-formfield>
-
-            <kendo-formfield>
-                <kendo-label [for]="notes" text="Notes"></kendo-label>
-                <input formControlName="notes" kendoTextBox #notes required/>
-                <kendo-formerror>Error: Not valid note format</kendo-formerror>
-            </kendo-formfield>
-
-            <kendo-formfield>
-                <kendo-label [for]="description" text="Description"></kendo-label>
-                <input formControlName="description" kendoTextBox #description required/>
-                <kendo-formerror>Error: Not valid note format</kendo-formerror>
-            </kendo-formfield>
-
-            <div class="k-form-buttons">
-                <button class="k-button k-primary" (click)="submitForm()">Submit</button>
-                <button class="k-button" (click)="clearForm()">Clear</button>
-            </div>
-         </fieldset>
-    </form>
+                <div class="row">
+                    <div class="column">
+                        <kendo-formfield>
+                            <kendo-label [for]="ID" text="ID"></kendo-label>
+                            <input formControlName="id" kendoTextBox #ID required/>
+                            <kendo-formerror>Error: Mission ID is required</kendo-formerror>
+                        </kendo-formfield>
+                        <kendo-formfield [showHints]="'initial'">
+                            <div class="k-form-field-checkbox-wrap">
+                                <input kendoCheckBox id="cbCompleted" type="checkbox" [formControlName]="'completed'" />
+                                <kendo-label class="k-checkbox-label" for="terms" text="Completed"></kendo-label>
+                            </div>
+                                <kendo-formerror>Error: This field is required</kendo-formerror>
+                        </kendo-formfield>
+                    </div>
+                    <div class="column">
+                        <kendo-formfield>
+                            <kendo-label [for]="Name" text="Mission Name"></kendo-label>
+                            <input formControlName="name" kendoTextBox #Name required/>
+                            <kendo-formerror>Error: Mission Name is required</kendo-formerror>
+                        </kendo-formfield>
+                        <kendo-formfield>
+                            <kendo-label [for]="StartDate" [optional]="true" text="Start Date"></kendo-label>
+                            <kendo-datepicker #StartDate formControlName="startDate" [min]="min" [max]="max"></kendo-datepicker>
+                        </kendo-formfield>
+                    </div>
+                    <div class="column">
+                        <kendo-formfield>
+                            <kendo-label [for]="createdDate" [optional]="true" text="Created Date"></kendo-label>
+                            <kendo-datepicker #createdDate formControlName="createdDate" [min]="min" [max]="max"></kendo-datepicker>
+                        </kendo-formfield>
+            
+                        <kendo-formfield>
+                            <kendo-label [for]="completedDate" [optional]="true" text="Completed Date"></kendo-label>
+                            <kendo-datepicker #completedDate formControlName="completedDate" [min]="min" [max]="max"></kendo-datepicker>
+                        </kendo-formfield>
+                    </div>
+                </div> 
+                <kendo-formfield>
+                    <kendo-label [for]="notes" text="Notes"></kendo-label>
+                    <textarea kendoTextArea formControlName="notes" kendoTextBox #notes required></textarea>
+                    <kendo-formerror>Error: Not valid note format</kendo-formerror>
+                </kendo-formfield>
+                <kendo-formfield>
+                    <kendo-label [for]="description" text="Description"></kendo-label>
+                    <textarea kendoTextArea formControlName="description" kendoTextBox #description required></textarea>
+                    <kendo-formerror>Error: Not valid note format</kendo-formerror>
+                </kendo-formfield>
+            </fieldset>
+        </form>
+    </div>
+    <hr/>
+    <mat-tab-group>
+        <mat-tab label="Agents"> 
+            <kendo-grid [data]="missionDetailData.agents" [height]="410">
+                <ng-template kendoGridToolbarTemplate>
+                    <button type="button" kendoGridExcelCommand icon="file-excel">Export to Excel</button>
+                </ng-template>
+                <kendo-grid-column field="id" title="ID" width="100">
+                </kendo-grid-column>
+                <kendo-grid-column field="name" title=" Name" width="250">
+                </kendo-grid-column>
+                <kendo-grid-excel fileName="missiondetails.xlsx"></kendo-grid-excel>
+            </kendo-grid>
+        </mat-tab>
+        <mat-tab label="Second"> Content 2 </mat-tab>
+        <mat-tab label="Third"> Content 3 </mat-tab>
+    </mat-tab-group> 
 </div>
-<hr/>
-<!-- <kendo-grid [data]="gridData" [height]="410" [selectable]="selectableSettings" (selectionChange)="selectionChange($event)">
-    <ng-template kendoGridToolbarTemplate>
-        <button type="button" kendoGridExcelCommand icon="file-excel">Export to Excel</button>
-    </ng-template>
-    <kendo-grid-column field="id" title="ID" width="100">
-    </kendo-grid-column>
-    <kendo-grid-column field="name" title=" Name" width="250">
-    </kendo-grid-column>
-    <kendo-grid-column field="startDate" title="Start">
-    </kendo-grid-column>
-    <kendo-grid-column field="completed" title="Completed" width="120">
-        <ng-template kendoGridCellTemplate let-dataItem>
-            <input type="checkbox" [checked]="dataItem.completed" disabled/>
-        </ng-template>
-    </kendo-grid-column> 
-    <pre>{{ selectedItem | json}}</pre>
-    <kendo-grid-excel fileName="missions.xlsx"></kendo-grid-excel>
-</kendo-grid> -->
-
-<!-- <div class="example-wrap">
-    <account-form></account-form>
-</div> -->
-        

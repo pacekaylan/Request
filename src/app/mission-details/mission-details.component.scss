@@ -2,14 +2,27 @@
      display: flex;
      justify-content: left;
  }
-
  .k-form {
-     width: 400px;
- }
- .k-form {
-     width: 350px;
+     width: 100%;
      padding: 20px;
  }
- 
- 
+  .column {
+    float: left;
+    width: 30%;
+    padding-right: 20px;
+  }
+   .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .k-textarea {
+      width: 50%;
+      height: 50px;
+  }
+
+  #headerRightColumn{
+    float: right; 
+    vertical-align: top;
+  }
 

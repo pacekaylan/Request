@@ -7,6 +7,7 @@ import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { GridModule, ExcelModule } from '@progress/kendo-angular-grid';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { MissionsRoutingModule } from './missions-routing.module';
 import { MissionsComponent } from './missions.component';
@@ -24,14 +25,13 @@ import { MissionDetailsComponent } from '../mission-details/mission-details.comp
     CommonModule,
     FormsModule, 
     ReactiveFormsModule,
-    //BrowserModule,
-  //  BrowserAnimationsModule,
     MissionsRoutingModule,
     DateInputsModule,
     LabelModule,
     InputsModule,
     GridModule,
-    ExcelModule
+    ExcelModule,
+    MatTabsModule
   ]
 })
 export class MissionsModule { }

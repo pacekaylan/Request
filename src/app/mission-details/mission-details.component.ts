@@ -5,6 +5,7 @@ import { ViewEncapsulation } from '@angular/core';
 import { MissionsService } from '../services/missions.service';
 import { MissionDetail } from '../interfaces/missiondetail';
 import { JsonPipe } from '@angular/common';
+import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 
 
 @Component({
@@ -14,6 +15,7 @@ import { JsonPipe } from '@angular/common';
 })
 export class MissionDetailsComponent implements OnInit {
 
+  public isDataAvailable: boolean = false;
   public missionDetailData: MissionDetail;
   public min: Date = new Date(1917, 0, 1);
   public max: Date = new Date(2020, 4, 31);
@@ -49,11 +51,13 @@ export class MissionDetailsComponent implements OnInit {
         notes: this.missionDetailData.notes,
         description: this.missionDetailData.description
       });
+
+      this.isDataAvailable = true;
     });
 
   }
 
-  public submitForm(): void {
+  public editForm(): void {
       this.missionDetails.markAllAsTouched();
   }
 
