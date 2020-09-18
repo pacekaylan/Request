@@ -1,4 +1,7 @@
 <!-- <h2>Missions</h2> -->
+
+
+
 <div *ngIf="isDataAvailable">
     <kendo-grid [data]="gridData" [height]="410" [selectable]="selectableSettings" (selectionChange)="selectionChange($event)">
         <ng-template kendoGridToolbarTemplate>

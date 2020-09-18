@@ -35,12 +35,12 @@ export class AppComponent implements OnInit {
   public gridData: any[] = products;
   public sliderValue: number = 10;
   
-  //dynamic tabs
-  public navLinks: any[] = [
-    { label: 'Missions', path: 'missions' },
-    { label: 'Agents', path: 'agents' },
-    { label: 'GeoFences', path: 'geofences' }
-  ]
+  // //dynamic tabs
+  // public navLinks: any[] = [
+  //   { label: 'Missions', path: 'missions' },
+  //   { label: 'Agents', path: 'agents' },
+  //   { label: 'GeoFences', path: 'geofences' }
+  // ]
 
   menuItems: any[];
 

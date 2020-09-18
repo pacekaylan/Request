@@ -42,7 +42,7 @@ export class MissionsComponent implements OnInit {
   {
     this.selectedItem = e.selectedRows[0].dataItem;
     this.sharedService.changeMessage(this.selectedItem);
-    this._router.navigate(['missions/details']);
+    this._router.navigate(['missiontabs/missions/details']);
   }
 
 }

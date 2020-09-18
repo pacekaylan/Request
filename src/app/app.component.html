@@ -6,18 +6,6 @@
 
 
 
-<mat-expansion-panel [expanded]="true">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      
-    </mat-panel-title>
-    
-  </mat-expansion-panel-header>
-
-  <p class=paragraph >In this demo we display many different elements that can be used in your application design. Navigate through each tab to see how these tools can be useful in your application to better fulfill you business needs. We are adding to this demo and will make updates periodically. Check out the site anytime to see new designs!</p>
-
-</mat-expansion-panel> 
-
  <div id="mySideNav">
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav style="height: 100%;" #drawer class="sidenav" 
@@ -27,42 +15,20 @@
       [opened]="(isHandset$ | async) === false">
 
  
-    <mat-toolbar color="primary">MDT</mat-toolbar>
+    <!-- <mat-toolbar color="primary">MDT</mat-toolbar> -->
     <mat-nav-list>
-      <a mat-list-item href="#"><mat-icon aria-hidden="false" style="color: #EC663C">dashboard</mat-icon>   Dashboard</a>
-      <a mat-list-item href="#"><mat-icon aria-hidden="false" style="color: #463B42">history_edu</mat-icon>   Missions</a>
+      <a mat-list-item href="dashboard"><mat-icon aria-hidden="false" style="color: #EC663C">dashboard</mat-icon>   Dashboard</a>
+      <a mat-list-item href="missiontabs"><mat-icon aria-hidden="false" style="color: #463B42">history_edu</mat-icon>   Missions</a>
       <a mat-list-item href="#"><mat-icon aria-hidden="false" style="color: #274d7e">library_books</mat-icon>   Inventory</a>
       <a mat-list-item href="#"><mat-icon aria-hidden="false" style="color: #5cb85c">bug_report</mat-icon>   Reports</a>
       <a mat-list-item href="#"><mat-icon aria-hidden="false" style="color: #811726">account_box</mat-icon>   User Management</a>
     </mat-nav-list>
   
   </mat-sidenav>
-  <mat-sidenav-content>
-    <!-- <mat-toolbar>
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      
-    </mat-toolbar> -->
-
-    <nav mat-tab-nav-bar>
-      <a mat-tab-link
-         *ngFor="let link of navLinks"
-         [routerLink]="link.path"
-         routerLinkActive #rla="routerLinkActive"
-         [active]="rla.isActive">
-        {{link.label}}
-      </a>
-    </nav>  
-    
-    <div style="height: 900px;">
-    <router-outlet></router-outlet>
-  </div>
-    
+  <mat-sidenav-content>    
+    <div style=" padding-right: 10px; padding-left: 10px; height: 900px;">
+      <router-outlet></router-outlet>
+    </div>
    </mat-sidenav-content>
 </mat-sidenav-container> 
+</div>
